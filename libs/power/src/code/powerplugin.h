@@ -11,4 +11,3 @@ public:
     void registerTypes(const char *uri) override;
 };
 
-

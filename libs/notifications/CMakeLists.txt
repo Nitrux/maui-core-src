@@ -38,7 +38,7 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/mauicorenotifications_version.h"
     COMPONENT Devel)
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} COMPONENTS Core Quick DBus Gui REQUIRED)
-find_package(KF6 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n)
+find_package(KF6 ${REQUIRED_KF_VERSION} REQUIRED COMPONENTS I18n)
 
 add_subdirectory(src)
 

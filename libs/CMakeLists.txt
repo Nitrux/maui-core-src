@@ -9,7 +9,6 @@ project(MauiCore VERSION ${MAUICORE_VERSION})
 
 set(REQUIRED_QT_VERSION 6.4)
 set(REQUIRED_KF_VERSION 5.240.0)
-set(REQUIRED_MAUI_VERSION 4.0.0)
 
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
@@ -19,8 +18,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(ECM ${REQUIRED_KF_VERSION} NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+
 include(GenerateExportHeader)
-include(GNUInstallDirs)
 include(FeatureSummary)
 include(CMakePackageConfigHelpers)
 
@@ -31,8 +32,6 @@ include(ECMQmlModule)
 
 include(KDEPackageAppTemplates)
 include(KDECompilerSettings)
-include(KDEInstallDirs)
-include(KDECMakeSettings)
 
 ##CMAKE PARTS
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/MauiCore")
@@ -55,7 +54,6 @@ ecm_setup_version(${PROJECT_VERSION}
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/MauiCoreConfigVersion.cmake"
     SOVERSION ${PROJECT_VERSION_MAJOR})
 
-#add_subdirectory(network)
 add_subdirectory(audio)
 add_subdirectory(notifications)
 add_subdirectory(power)

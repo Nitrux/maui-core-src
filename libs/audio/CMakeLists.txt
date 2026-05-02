@@ -45,7 +45,6 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/mauicoreaudio_version.h"
 find_package(Qt6 ${REQUIRED_QT_VERSION} COMPONENTS Core Quick Qml DBus Gui Widgets REQUIRED)
 find_package(KF6 ${REQUIRED_KF_VERSION} REQUIRED COMPONENTS I18n)
 
-#find_package(PkgConfig)
 find_package(Canberra REQUIRED)
 
 pkg_check_modules(LIBPULSE libpulse REQUIRED IMPORTED_TARGET)

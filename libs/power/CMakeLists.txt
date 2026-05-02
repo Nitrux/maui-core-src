@@ -4,11 +4,9 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-set(AUTOMOC_MOC_OPTIONS -Muri=org.mauiman.power)
+set(AUTOMOC_MOC_OPTIONS -Muri=org.mauicore.power)
 
 project(MauiCorePower LANGUAGES CXX VERSION ${MAUICORE_VERSION})
-
-include(KDEPackageAppTemplates)
 
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/MauiCorePower")
 
@@ -40,9 +38,8 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/mauicorepower_version.h"
     COMPONENT Devel)
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} COMPONENTS Core Qml Quick DBus Gui REQUIRED)
-find_package(KF6 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n Solid IdleTime CoreAddons Service)
+find_package(KF6 ${REQUIRED_KF_VERSION} REQUIRED COMPONENTS I18n Solid IdleTime CoreAddons Service)
 
 add_subdirectory(src)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
-

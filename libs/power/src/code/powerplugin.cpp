@@ -1,4 +1,4 @@
-#include "caskpowerplugin.h"
+#include "powerplugin.h"
 
 #include <QQmlEngine>
 
@@ -10,6 +10,6 @@ void PowerPlugin::registerTypes(const char *uri)
 {
     qmlRegisterType<BrightnessControl>(uri, 1, 0, "BrightnessControl");
     qmlRegisterType<BatteryInfo>(uri, 1, 0, "BatteryInfo");
-    qmlRegisterUncreatableType<Battery>(uri, 1, 0, "Battery", QStringLiteral("To be reference from the model or controller."));
+    qmlRegisterUncreatableType<Battery>(uri, 1, 0, "Battery", QStringLiteral("To be referenced from the model or controller."));
     qmlRegisterType<PowerProfile>(uri, 1, 0, "PowerProfile");
 }

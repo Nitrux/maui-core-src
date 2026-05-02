@@ -1,5 +1,3 @@
-#ecm_create_qm_loader(mauicoreaudio_QM_LOADER libcasknotificationsplugin_qt)
-
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
@@ -42,10 +40,7 @@ set(audio_SRCS
     code/module.cpp
     code/canberracontext.cpp
     code/speakertest.cpp
-#    code/qml/listitemmenu.cpp
     code/qml/plugin.cpp
-    # qml/microphoneindicator.cpp
-    # qml/volumeosd.cpp
     code/qml/volumefeedback.cpp
     code/model/sortfiltermodel.cpp)
 
@@ -86,12 +81,10 @@ target_link_libraries(${PROJECT_NAME}plugin
     PkgConfig::GIO)
 
 ecm_finalize_qml_module(${PROJECT_NAME} DESTINATION ${KDE_INSTALL_QMLDIR})
-# ecm_generate_qmltypes(org.mauicore.audio 1.0 DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauicore/audio)
 
 install(TARGETS ${PROJECT_NAME} EXPORT MauiCoreAudioTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
-    #    ${headers}
     ${CMAKE_CURRENT_BINARY_DIR}/audio_export.h
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/Maui/Core/Audio
     COMPONENT Devel)

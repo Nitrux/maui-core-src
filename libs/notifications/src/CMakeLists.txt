@@ -11,7 +11,7 @@ add_library(${PROJECT_NAME} SHARED)
 ecm_add_qml_module(${PROJECT_NAME}
     URI "org.mauicore.notifications"
     VERSION 1.0
-    CLASSNAME NotificationsPlugin
+    CLASS_NAME NotificationsPlugin
     NO_PLUGIN_OPTIONAL
     NO_GENERATE_PLUGIN_SOURCE)
 
@@ -40,9 +40,6 @@ set(headers
 
 qt_add_dbus_interface(SRCS code/org.freedesktop.Notifications.xml notifications_interface)
 qt_add_dbus_adaptor(SRCS code/org.freedesktop.Notifications.xml code/notificationserver.h NotificationServer notifications_adaptor)
-
-#ecm_target_qml_sources(${PROJECT_NAME} SOURCES
-#    controls/PulseObjectFilterModel.qml)
 
 target_sources(${PROJECT_NAME}plugin
     PRIVATE
