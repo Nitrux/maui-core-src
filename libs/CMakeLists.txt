@@ -15,6 +15,17 @@ set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+include(CheckCXXCompilerFlag)
+if(NOT CMAKE_CROSSCOMPILING)
+    string(TOLOWER "${CMAKE_HOST_SYSTEM_PROCESSOR}" _host_processor)
+    if(_host_processor MATCHES "^(x86_64|amd64)$")
+        check_cxx_compiler_flag("-march=x86-64-v3" HAS_X86_64_V3)
+        if(HAS_X86_64_V3)
+            add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:-march=x86-64-v3>")
+        endif()
+    endif()
+endif()
+
 find_package(ECM ${REQUIRED_KF_VERSION} NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
