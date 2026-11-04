@@ -1,4 +1,5 @@
 #pragma once
+#include "power_export.h"
 
 #include <QObject>
 #include <QAbstractListModel>
@@ -7,7 +8,7 @@
 
 #include <QDBusConnection>
 
-class Battery : public QObject
+class POWER_EXPORT Battery : public QObject
 {
     Q_OBJECT
 public:
@@ -122,7 +123,7 @@ private:
     qulonglong m_timeToFull;
 };
 
-class BatteryModel : public QAbstractListModel
+class POWER_EXPORT BatteryModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(int count READ count NOTIFY countChanged)
@@ -149,7 +150,7 @@ private:
     QVector<Battery*>m_batteries;
 };
 
-class BatteryInfo : public QObject
+class POWER_EXPORT BatteryInfo : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(BatteryModel* batteries READ batteries NOTIFY batteriesChanged FINAL)
@@ -192,4 +193,3 @@ Q_SIGNALS:
     void primaryBatteryChanged();
     void acPluggedInChanged(bool acPluggedIn);
 };
-

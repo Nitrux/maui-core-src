@@ -1,10 +1,11 @@
 #pragma once
+#include "power_export.h"
 
 #include <QObject>
 #include <QList>
 #include <QVariantMap>
 
-class PowerProfile : public QObject
+class POWER_EXPORT PowerProfile : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString currentProfile READ currentProfile NOTIFY currentProfileChanged)
@@ -63,4 +64,3 @@ Q_SIGNALS:
     void performanceDegradedReasonChanged(QString performanceDegradedReason);
     void profileHoldsChanged(QList<QVariantMap> profileHolds);
 };
-

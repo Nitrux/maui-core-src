@@ -1,7 +1,8 @@
 #pragma once
+#include "power_export.h"
 #include <QObject>
 
-class BrightnessControl : public QObject
+class POWER_EXPORT BrightnessControl : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int screenBrightness READ screenBrightness NOTIFY screenBrightnessChanged FINAL)
@@ -69,4 +70,3 @@ private:
     bool m_lidPresent = false;
     bool m_triggersLidAction = false;
 };
-
