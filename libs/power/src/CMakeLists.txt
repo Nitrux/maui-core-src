@@ -62,6 +62,8 @@ target_link_libraries(${PROJECT_NAME}plugin
     Qt6::Core
     Qt6::Qml
     Qt6::Quick
+    KF6::Solid
+    Qt6::DBus
     ${PROJECT_NAME})
 
 ecm_finalize_qml_module(${PROJECT_NAME} DESTINATION ${KDE_INSTALL_QMLDIR})
